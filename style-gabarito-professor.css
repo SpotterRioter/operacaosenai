@@ -1,0 +1,486 @@
+/* ==========================================================================
+   🏆 OPERAÇÃO MANGUETECH 2077 - SENAI AREIAS (GABARITO DO PROFESSOR)
+   ==========================================================================
+   Este arquivo contém a solução completa das 8 fases com boas práticas de
+   mercado, variáveis CSS, Flexbox, CSS Grid, seletores avançados e animações.
+   ========================================================================== */
+
+/* ==========================================================================
+   🟢 FASE 1: INICIALIZAÇÃO DO KERNEL (Variáveis CSS e Reset Global)
+   ========================================================================== */
+:root {
+  --bg-principal: #0f172a;
+  --bg-painel: #1e293b;
+  --bg-card: #334155;
+  --cor-senai: #ff6600;
+  --cor-senai-hover: #e65c00;
+  --cor-ciano: #06b6d4;
+  --cor-texto: #f8fafc;
+  --cor-texto-suave: #94a3b8;
+  --status-ativo: #10b981;
+  --status-alerta: #f59e0b;
+  --status-critico: #ef4444;
+  --borda-padrao: 1px solid #475569;
+  --raio-borda: 8px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-principal);
+  color: var(--cor-texto);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+h2 {
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+  color: var(--cor-texto);
+  border-left: 4px solid var(--cor-senai);
+  padding-left: 10px;
+}
+
+/* ==========================================================================
+   🟡 FASE 2: BARRA DE COMANDO (Flexbox Unidimensional)
+   ========================================================================== */
+.topo-terminal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background-color: var(--bg-painel);
+  border-bottom: 3px solid var(--cor-senai);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.logo-sistema {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.icone-engrenagem {
+  font-size: 1.8rem;
+}
+
+.logo-sistema h1 {
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  color: var(--cor-texto);
+}
+
+.logo-sistema small {
+  color: var(--cor-senai);
+  font-size: 0.85rem;
+  font-family: monospace;
+}
+
+.controles-esteira {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn {
+  padding: 10px 16px;
+  background-color: var(--bg-card);
+  color: var(--cor-texto);
+  border: var(--borda-padrao);
+  border-radius: var(--raio-borda);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--cor-ciano);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+.btn-primario {
+  background-color: var(--cor-senai);
+  color: #ffffff;
+  border: none;
+  padding: 12px;
+  font-size: 1rem;
+}
+
+.btn-primario:hover {
+  background-color: var(--cor-senai-hover);
+}
+
+.btn-perigo {
+  background-color: var(--status-critico);
+  color: #ffffff;
+  border-color: #b91c1c;
+}
+
+.btn-perigo:hover {
+  background-color: #dc2626;
+  border-color: #ffffff;
+}
+
+/* ==========================================================================
+   🟠 FASE 3: CRACHÁ & SENSORES (Box Model, Position e Seletores de Atributo)
+   ========================================================================== */
+.cracha-industrial {
+  position: relative;
+  background-color: var(--bg-card);
+  padding: 24px 20px;
+  border-radius: var(--raio-borda);
+  border-left: 5px solid var(--cor-senai);
+  margin-bottom: 24px;
+}
+
+.selo-nivel {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: var(--cor-senai);
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 4px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+
+.avatar-operador {
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+}
+
+.operador-nome {
+  border: none;
+  padding: 0;
+  margin-bottom: 4px;
+  font-size: 1.15rem;
+}
+
+.operador-matricula,
+.setor {
+  font-size: 0.85rem;
+  color: var(--cor-texto-suave);
+  margin-bottom: 4px;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 8px;
+  width: fit-content;
+}
+
+.status-badge[data-status="ativo"] {
+  background-color: var(--status-ativo);
+  color: #052e16;
+}
+
+.status-badge[data-status="alerta"] {
+  background-color: var(--status-alerta);
+  color: #451a03;
+}
+
+.status-badge[data-status="critico"] {
+  background-color: var(--status-critico);
+  color: #ffffff;
+}
+
+/* Estilização complementar do menu lateral */
+.menu-modulos h3 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: var(--cor-texto-suave);
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+.lista-navegacao {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.lista-navegacao a {
+  display: block;
+  padding: 10px 14px;
+  color: var(--cor-texto);
+  text-decoration: none;
+  border-radius: var(--raio-borda);
+  background-color: rgba(255, 255, 255, 0.03);
+  transition: background 0.2s;
+}
+
+.lista-navegacao a:hover,
+.lista-navegacao a.link-ativo {
+  background-color: var(--cor-senai);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   🔴 FASE 4: A MATRIZ CENTRAL (CSS Grid Layout 2D)
+   ========================================================================== */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr 1fr;
+  grid-template-areas:
+    "sidebar sensores sensores"
+    "sidebar telemetria controle"
+    "footer footer footer";
+  gap: 20px;
+  padding: 20px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.area-sidebar    { grid-area: sidebar; }
+.area-sensores   { grid-area: sensores; }
+.area-telemetria { grid-area: telemetria; }
+.area-controle   { grid-area: controle; }
+.area-footer     { grid-area: footer; }
+
+.area-sidebar,
+.area-sensores,
+.area-telemetria,
+.area-controle,
+.area-footer {
+  background-color: var(--bg-painel);
+  padding: 20px;
+  border-radius: var(--raio-borda);
+  border: var(--borda-padrao);
+}
+
+.area-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--cor-texto-suave);
+}
+
+/* ==========================================================================
+   🟣 FASE 5: BANCADA DE SENSORES (Flexbox Wrap & Cards Responsivos)
+   ========================================================================== */
+.cabecalho-secao {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.tag-atualizacao {
+  font-size: 0.8rem;
+  color: var(--cor-ciano);
+  font-family: monospace;
+  background: rgba(6, 182, 212, 0.1);
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid var(--cor-ciano);
+}
+
+.grade-sensores {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.sensor-card {
+  flex: 1 1 200px;
+  position: relative;
+  background-color: var(--bg-card);
+  padding: 20px;
+  border-radius: var(--raio-borda);
+  border: var(--borda-padrao);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.indicador-canto {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: var(--cor-texto-suave);
+}
+
+.sensor-card h3 {
+  font-size: 0.95rem;
+  color: var(--cor-texto-suave);
+  font-weight: 600;
+}
+
+.leitura {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--cor-ciano);
+  font-family: monospace;
+}
+
+/* ==========================================================================
+   🔵 FASE 6: RELATÓRIO DE TELEMETRIA (Tabelas e :nth-child)
+   ========================================================================== */
+.tabela-container {
+  overflow-x: auto;
+}
+
+.tabela-industrial {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+  font-size: 0.9rem;
+}
+
+.tabela-industrial th,
+.tabela-industrial td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: var(--borda-padrao);
+}
+
+.tabela-industrial th {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: var(--cor-texto-suave);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+}
+
+.tabela-industrial tbody tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.tabela-industrial tbody tr:hover {
+  background-color: rgba(6, 182, 212, 0.08);
+}
+
+/* ==========================================================================
+   🟤 FASE 7: TERMINAL DE CALIBRAÇÃO (Formulários e :focus)
+   ========================================================================== */
+.form-calibracao {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.campo-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.campo-grupo label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--cor-texto-suave);
+}
+
+.form-calibracao input[type="text"],
+.form-calibracao select {
+  width: 100%;
+  padding: 10px 12px;
+  background-color: var(--bg-principal);
+  color: var(--cor-texto);
+  border: var(--borda-padrao);
+  border-radius: var(--raio-borda);
+  font-size: 0.95rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-calibracao input[type="text"]:focus,
+.form-calibracao select:focus {
+  outline: none;
+  border-color: var(--cor-senai);
+  box-shadow: 0 0 0 3px rgba(255, 102, 0, 0.25);
+}
+
+.form-calibracao input[type="range"],
+.form-calibracao input[type="checkbox"] {
+  accent-color: var(--cor-senai);
+  cursor: pointer;
+}
+
+.campo-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: var(--cor-texto-suave);
+}
+
+/* ==========================================================================
+   🔥 FASE 8 (BOSS FIGHT): SOBRECARGA MOBILE (Keyframes & Media Queries)
+   ========================================================================== */
+@keyframes pulsar-alerta {
+  0% {
+    background-color: #ef4444;
+    box-shadow: 0 0 4px rgba(239, 68, 68, 0.5);
+    transform: scale(1);
+  }
+  100% {
+    background-color: #7f1d1d;
+    box-shadow: 0 0 18px rgba(239, 68, 68, 0.95);
+    transform: scale(1.01);
+  }
+}
+
+.alerta-critico {
+  padding: 14px 16px;
+  border-radius: var(--raio-borda);
+  color: #ffffff;
+  font-size: 0.9rem;
+  margin-bottom: 18px;
+  border: 1px solid #fca5a5;
+  animation: pulsar-alerta 0.8s infinite alternate ease-in-out;
+}
+
+/* Responsividade para Tablets e Smartphones de Chão de Fábrica */
+@media (max-width: 900px) {
+  .topo-terminal {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    text-align: center;
+  }
+
+  .logo-sistema {
+    justify-content: center;
+  }
+
+  .controles-esteira {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "sidebar"
+      "sensores"
+      "controle"
+      "telemetria"
+      "footer";
+  }
+
+  .area-footer {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+}

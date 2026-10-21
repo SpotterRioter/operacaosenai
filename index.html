@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SENAI Areias // Operação MangueTech 2077</title>
+  
+  <!-- =================================================================
+       ALTERNADOR DE ESTILO (ALUNO vs PROFESSOR):
+       - Para os alunos trabalharem: mantenha href="style-aluno.css"
+       - Para ver o projeto pronto (Gabarito): troque para href="style-gabarito-professor.css"
+       ================================================================= -->
+  <link rel="stylesheet" href="style-aluno.css">
+</head>
+<body>
+
+  <!-- =================================================================
+       FASE 2: BARRA DE COMANDO (FLEXBOX UNIDIMENSIONAL)
+       ================================================================= -->
+  <header class="topo-terminal" id="terminal-header">
+    <div class="logo-sistema">
+      <span class="icone-engrenagem">⚙️</span>
+      <h1>SENAI_AREIAS <small>// MANGUETECH_OS v2.077</small></h1>
+    </div>
+
+    <nav class="controles-esteira" aria-label="Controles Principais">
+      <button type="button" class="btn" data-acao="iniciar">▶ Iniciar Linha</button>
+      <button type="button" class="btn" data-acao="pausar">⏸ Pausar</button>
+      <button type="button" class="btn btn-perigo" data-acao="emergencia">🚨 Parada Geral</button>
+    </nav>
+  </header>
+
+  <!-- =================================================================
+       FASE 4: A MATRIZ CENTRAL (CSS GRID 2D DASHBOARD)
+       ================================================================= -->
+  <main class="dashboard-grid">
+
+    <!-- COLUNA LATERAL (SIDEBAR) + FASE 3 (BOX MODEL & POSITION) -->
+    <aside class="area-sidebar">
+      <div class="cracha-industrial">
+        <span class="selo-nivel">NÍVEL 4</span>
+        <div class="avatar-operador">👷‍♂️</div>
+        <h2 class="operador-nome">Téc. Chico Science</h2>
+        <p class="operador-matricula">Matrícula: #PE-81920</p>
+        <p class="setor">Unidade: SENAI Areias - Bloco C</p>
+        <span class="status-badge" data-status="ativo">● SISTEMA ONLINE</span>
+      </div>
+
+      <div class="menu-modulos">
+        <h3>Módulos da Planta</h3>
+        <ul class="lista-navegacao">
+          <li><a href="#sensores" class="link-ativo">01. Sensores Térmicos</a></li>
+          <li><a href="#telemetria">02. Log de Telemetria</a></li>
+          <li><a href="#calibracao">03. Calibração Manual</a></li>
+          <li><a href="#rodape">04. Diagnóstico de Rede</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- ÁREA PRINCIPAL DE MONITORAMENTO + FASE 5 (FLEXBOX WRAP CARDS) -->
+    <section class="area-sensores" id="sensores">
+      <div class="cabecalho-secao">
+        <h2>Monitoramento de Sensores em Tempo Real</h2>
+        <span class="tag-atualizacao">Atualizado há 2s</span>
+      </div>
+
+      <div class="grade-sensores">
+        <article class="sensor-card" data-tipo="temperatura">
+          <span class="indicador-canto">T-01</span>
+          <h3>Caldeira Principal</h3>
+          <p class="leitura">85°C</p>
+          <span class="status-badge" data-status="ativo">Estável</span>
+        </article>
+
+        <article class="sensor-card" data-tipo="temperatura">
+          <span class="indicador-canto">T-02</span>
+          <h3>Forno de Indução</h3>
+          <p class="leitura">142°C</p>
+          <span class="status-badge" data-status="alerta">Atenção</span>
+        </article>
+
+        <article class="sensor-card" data-tipo="pressao">
+          <span class="indicador-canto">P-01</span>
+          <h3>Compressor Pneumático</h3>
+          <p class="leitura">6.4 Bar</p>
+          <span class="status-badge" data-status="ativo">Normal</span>
+        </article>
+
+        <article class="sensor-card" data-tipo="rotacao">
+          <span class="indicador-canto">R-04</span>
+          <h3>Torno CNC 04</h3>
+          <p class="leitura">4800 RPM</p>
+          <span class="status-badge" data-status="critico">Sobrecarga</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===============================================================
+         FASE 6: TABELA DE TELEMETRIA (PSEUDO-SELETORES NTH-CHILD)
+         =============================================================== -->
+    <section class="area-telemetria" id="telemetria">
+      <h2>Histórico de Produção dos Turnos</h2>
+      <div class="tabela-container">
+        <table class="tabela-industrial">
+          <thead>
+            <tr>
+              <th>ID Máquina</th>
+              <th>Equipamento</th>
+              <th>Operador Responsável</th>
+              <th>Eficiência (OEE)</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#M-101</td>
+              <td>Braço Robótico KUKA</td>
+              <td>Ana Clara Silva</td>
+              <td>96.4%</td>
+              <td><span class="status-badge" data-status="ativo">Operando</span></td>
+            </tr>
+            <tr>
+              <td>#M-102</td>
+              <td>Fresadora Industrial</td>
+              <td>Lucas Cavalcanti</td>
+              <td>88.1%</td>
+              <td><span class="status-badge" data-status="ativo">Operando</span></td>
+            </tr>
+            <tr>
+              <td>#M-103</td>
+              <td>Prensa Hidráulica 50T</td>
+              <td>Marina Wanderley</td>
+              <td>72.0%</td>
+              <td><span class="status-badge" data-status="alerta">Manutenção</span></td>
+            </tr>
+            <tr>
+              <td>#M-104</td>
+              <td>Torno CNC 04</td>
+              <td>Gabriel Bezerra</td>
+              <td>41.5%</td>
+              <td><span class="status-badge" data-status="critico">Crítico</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===============================================================
+         FASE 7: FORMULÁRIO DE CALIBRAÇÃO (INPUTS & FOCUS)
+         + FASE 8: BOSS FIGHT (ANIMAÇÃO DE ALERTA CRÍTICO)
+         =============================================================== -->
+    <section class="area-controle" id="calibracao">
+      
+      <!-- Alerta da Fase 8 (Boss Fight) -->
+      <div class="alerta-critico" role="alert">
+        <strong>⚠️ ALERTA DE EMERGÊNCIA:</strong> SUPERAQUECIMENTO DETECTADO NO TORNO CNC 04! REDUZA A POTÊNCIA IMEDIATAMENTE.
+      </div>
+
+      <h2>Terminal de Calibração Manual</h2>
+      <form class="form-calibracao" onsubmit="event.preventDefault(); alert('Parâmetros enviados com sucesso para a bancada do SENAI Areias!');">
+        <div class="campo-grupo">
+          <label for="codigo-maquina">Código de Acesso da Máquina:</label>
+          <input type="text" id="codigo-maquina" placeholder="Ex: CNC-04-AREIAS" required>
+        </div>
+
+        <div class="campo-grupo">
+          <label for="modo-operacao">Modo de Operação:</label>
+          <select id="modo-operacao">
+            <option value="eco">Modo Eco (Redução de Energia)</option>
+            <option value="padrao" selected>Modo Padrão Industrial</option>
+            <option value="turbo">Modo Alta Performance</option>
+          </select>
+        </div>
+
+        <div class="campo-grupo">
+          <label for="potencia-motor">Limite de Potência do Motor (0% a 100%):</label>
+          <input type="range" id="potencia-motor" min="0" max="100" value="65">
+        </div>
+
+        <div class="campo-checkbox">
+          <input type="checkbox" id="confirmacao-seguranca" required>
+          <label for="confirmacao-seguranca">Confirmo que o EPI está equipado e a área está isolada (NR-12).</label>
+        </div>
+
+        <button type="submit" class="btn btn-primario">Aplicar Calibração no Sistema</button>
+      </form>
+    </section>
+
+    <!-- RODAPÉ DO GRID -->
+    <footer class="area-footer" id="rodape">
+      <p>SENAI Pernambuco - Unidade Areias (Recife/PE) // Curso Técnico em Informática</p>
+      <p>Status do Servidor: <strong>CONECTADO AO PORTO DIGITAL</strong></p>
+    </footer>
+
+  </main>
+
+</body>
+</html>

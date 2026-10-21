@@ -1,0 +1,276 @@
+/* ==========================================================================
+   🛠️ OPERAÇÃO MANGUETECH 2077 - SENAI AREIAS (ARQUIVO DO ALUNO)
+   ==========================================================================
+   REGRA DE OURO: Não altere o arquivo index.html!
+   Sua missão é restaurar a interface industrial completando as 8 fases abaixo.
+   ========================================================================== */
+
+
+/* ==========================================================================
+   🟢 FASE 1: INICIALIZAÇÃO DO KERNEL (Variáveis CSS e Reset Global) - [150 XP]
+   ==========================================================================
+   MISSÃO:
+   1. No seletor :root, crie as variáveis de cores do sistema:
+      --bg-principal: #0f172a;
+      --bg-painel: #1e293b;
+      --bg-card: #334155;
+      --cor-senai: #ff6600;
+      --cor-ciano: #06b6d4;
+      --cor-texto: #f8fafc;
+      --cor-texto-suave: #94a3b8;
+      --status-ativo: #10b981;
+      --status-alerta: #f59e0b;
+      --status-critico: #ef4444;
+      --borda-padrao: 1px solid #475569;
+      --raio-borda: 8px;
+   2. No seletor universal (*), zere margin e padding, e aplique box-sizing: border-box.
+   3. No body, aplique fundo var(--bg-principal), cor de texto var(--cor-texto)
+      e fonte 'Segoe UI', system-ui, sans-serif.
+   ========================================================================== */
+
+:root {
+  /* Escreva as variáveis aqui */
+
+}
+
+* {
+  /* Escreva o reset aqui */
+
+}
+
+body {
+  /* Estilize o corpo da página aqui */
+
+}
+
+
+/* ==========================================================================
+   🟡 FASE 2: BARRA DE COMANDO (Flexbox Unidimensional) - [200 XP]
+   ==========================================================================
+   MISSÃO:
+   1. Transforme .topo-terminal em um Flex Container (display: flex), alinhe
+      os itens nas extremidades (justify-content: space-between) e centralize
+      verticalmente (align-items: center). Adicione padding: 16px 24px,
+      background-color: var(--bg-painel) e border-bottom: 3px solid var(--cor-senai).
+   2. Alinhe .logo-sistema e .controles-esteira usando display: flex e gap: 12px.
+   3. Estilize os botões (.btn) com padding: 10px 16px, border: none,
+      border-radius: var(--raio-borda), cursor: pointer, font-weight: bold e
+      transition: all 0.2s ease.
+   4. Crie o efeito .btn:hover aplicando transform: translateY(-2px).
+   5. Destaque o .btn-perigo com background-color: var(--status-critico) e color: white.
+   ========================================================================== */
+
+.topo-terminal {
+  /* Seu código aqui */
+}
+
+.logo-sistema,
+.controles-esteira {
+  /* Seu código aqui */
+}
+
+.btn {
+  /* Seu código aqui */
+}
+
+.btn:hover {
+  /* Seu código aqui */
+}
+
+.btn-perigo {
+  /* Seu código aqui */
+}
+
+
+/* ==========================================================================
+   🟠 FASE 3: CRACHÁ & SENSORES (Box Model, Position e Atributos) - [250 XP]
+   ==========================================================================
+   MISSÃO:
+   1. Em .cracha-industrial, defina position: relative (para ancorar o selo),
+      background: var(--bg-card), padding: 24px, border-radius: var(--raio-borda)
+      e uma borda esquerda de 5px sólida na cor var(--cor-senai).
+   2. Posicione .selo-nivel no canto superior direito usando position: absolute,
+      top: 12px, right: 12px, background: var(--cor-senai), padding: 4px 8px,
+      font-size: 0.75rem e border-radius: 4px.
+   3. Estilize .status-badge com display: inline-block, padding: 6px 12px,
+      border-radius: 20px, font-size: 0.8rem e font-weight: bold.
+   4. Use SELETORES DE ATRIBUTO para pintar os status:
+      - .status-badge[data-status="ativo"] -> fundo var(--status-ativo) e texto #052e16
+      - .status-badge[data-status="alerta"] -> fundo var(--status-alerta) e texto #451a03
+      - .status-badge[data-status="critico"] -> fundo var(--status-critico) e texto #ffffff
+   ========================================================================== */
+
+.cracha-industrial {
+  /* Seu código aqui */
+}
+
+.selo-nivel {
+  /* Seu código aqui */
+}
+
+.status-badge {
+  /* Seu código aqui */
+}
+
+/* Seletores de atributo [data-status] aqui: */
+
+
+
+/* ==========================================================================
+   🔴 FASE 4: A MATRIZ CENTRAL (CSS Grid Layout 2D) - [300 XP]
+   ==========================================================================
+   MISSÃO:
+   1. Transforme .dashboard-grid em um Grid Container (display: grid) com
+      gap: 20px e padding: 20px.
+   2. Configure 3 colunas: grid-template-columns: 280px 1fr 1fr;
+   3. Configure o mapa de áreas (grid-template-areas):
+      "sidebar sensores sensores"
+      "sidebar telemetria controle"
+      "footer footer footer"
+   4. Conecte cada seção à sua área correspondente usando a propriedade grid-area:
+      - .area-sidebar    -> grid-area: sidebar;
+      - .area-sensores   -> grid-area: sensores;
+      - .area-telemetria -> grid-area: telemetria;
+      - .area-controle   -> grid-area: controle;
+      - .area-footer     -> grid-area: footer;
+   5. Dê aparência de painel para as áreas (.area-sidebar, .area-sensores,
+      .area-telemetria, .area-controle, .area-footer) com background: var(--bg-painel),
+      padding: 20px, border-radius: var(--raio-borda) e border: var(--borda-padrao).
+   ========================================================================== */
+
+.dashboard-grid {
+  /* Seu código Grid aqui */
+}
+
+.area-sidebar    { /* grid-area aqui */ }
+.area-sensores   { /* grid-area aqui */ }
+.area-telemetria { /* grid-area aqui */ }
+.area-controle   { /* grid-area aqui */ }
+.area-footer     { /* grid-area aqui */ }
+
+
+/* ==========================================================================
+   🟣 FASE 5: BANCADA DE SENSORES (Flexbox Wrap & Cards Responsivos) - [250 XP]
+   ==========================================================================
+   MISSÃO:
+   1. Em .grade-sensores, ative display: flex, flex-wrap: wrap e gap: 16px.
+   2. Em .sensor-card, use a propriedade mágica flex: 1 1 200px (para os cards
+      esticarem e quebrarem de linha sozinhos), position: relative,
+      background: var(--bg-card), padding: 20px e border-radius: var(--raio-borda).
+      Use também display: flex, flex-direction: column e gap: 10px.
+   3. Destaque a leitura numérica (.leitura) com font-size: 2.2rem,
+      font-weight: 800 e color: var(--cor-ciano).
+   ========================================================================== */
+
+.grade-sensores {
+  /* Seu código aqui */
+}
+
+.sensor-card {
+  /* Seu código aqui */
+}
+
+.leitura {
+  /* Seu código aqui */
+}
+
+
+/* ==========================================================================
+   🔵 FASE 6: RELATÓRIO DE TELEMETRIA (Tabelas e :nth-child) - [200 XP]
+   ==========================================================================
+   MISSÃO:
+   1. Em .tabela-industrial, defina width: 100%, border-collapse: collapse e margin-top: 16px.
+   2. Em .tabela-industrial th e .tabela-industrial td, adicione padding: 12px,
+      text-align: left e border-bottom: var(--borda-padrao).
+   3. Use o pseudo-seletor .tabela-industrial tbody tr:nth-child(even) para criar
+      o efeito "Zebra" com background-color: rgba(255, 255, 255, 0.04).
+   4. Adicione um efeito .tabela-industrial tbody tr:hover para destacar a linha
+      quando o mouse passar por cima.
+   ========================================================================== */
+
+.tabela-industrial {
+  /* Seu código aqui */
+}
+
+.tabela-industrial th,
+.tabela-industrial td {
+  /* Seu código aqui */
+}
+
+.tabela-industrial tbody tr:nth-child(even) {
+  /* Seu código aqui */
+}
+
+.tabela-industrial tbody tr:hover {
+  /* Seu código aqui */
+}
+
+
+/* ==========================================================================
+   🟤 FASE 7: TERMINAL DE CALIBRAÇÃO (Formulários e :focus) - [200 XP]
+   ==========================================================================
+   MISSÃO:
+   1. Em .form-calibracao, organize os campos em coluna usando display: flex,
+      flex-direction: column e gap: 16px.
+   2. Estilize os campos input[type="text"] e select com width: 100%, padding: 10px,
+      background: var(--bg-principal), color: var(--cor-texto),
+      border: var(--borda-padrao) e border-radius: var(--raio-borda).
+   3. Crie o estado :focus para input[type="text"]:focus e select:focus removendo
+      o outline padrão (outline: none) e aplicando border-color: var(--cor-senai)
+      e box-shadow: 0 0 0 3px rgba(255, 102, 0, 0.25).
+   4. Mude a cor da barra deslizante (input[type="range"]) e do checkbox
+      usando a propriedade moderna: accent-color: var(--cor-senai).
+   ========================================================================== */
+
+.form-calibracao {
+  /* Seu código aqui */
+}
+
+.form-calibracao input[type="text"],
+.form-calibracao select {
+  /* Seu código aqui */
+}
+
+.form-calibracao input[type="text"]:focus,
+.form-calibracao select:focus {
+  /* Seu código aqui */
+}
+
+.form-calibracao input[type="range"],
+.form-calibracao input[type="checkbox"] {
+  /* Seu código aqui */
+}
+
+
+/* ==========================================================================
+   🔥 FASE 8 (BOSS FIGHT): SOBRECARGA MOBILE (Keyframes & Media Queries) - [450 XP]
+   ==========================================================================
+   MISSÃO FINAL:
+   1. Crie uma animação @keyframes pulsar-alerta que alterne de (0%) com
+      background-color: #ef4444 e box-shadow: 0 0 5px #ef4444 até (100%) com
+      background-color: #7f1d1d e box-shadow: 0 0 20px #ef4444.
+   2. Aplique essa animação na classe .alerta-critico com:
+      animation: pulsar-alerta 0.8s infinite alternate;
+      (Adicione também padding: 14px, border-radius: var(--raio-borda) e margin-bottom: 16px).
+   3. Crie uma Media Query @media (max-width: 900px) para tablets e celulares:
+      - Mude .dashboard-grid para apenas 1 coluna (grid-template-columns: 1fr)
+      - Reorganize o grid-template-areas em uma única coluna vertical:
+        "sidebar"
+        "sensores"
+        "controle"
+        "telemetria"
+        "footer"
+      - No .topo-terminal, mude flex-direction para column e adicione gap: 12px.
+   ========================================================================== */
+
+@keyframes pulsar-alerta {
+  /* Defina os estados 0% e 100% aqui */
+}
+
+.alerta-critico {
+  /* Aplique a animação aqui */
+}
+
+@media (max-width: 900px) {
+  /* Adapte o layout para telas móveis aqui */
+}
