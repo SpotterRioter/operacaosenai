@@ -1,0 +1,374 @@
+body.css-editor-mode {
+  min-height: 100vh;
+  background: #07111f;
+  color: #e5edf7;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+body.css-editor-mode > header,
+body.css-editor-mode > .dashboard-grid {
+  display: none;
+}
+
+body.css-editor-mode #css-game {
+  min-height: 100vh;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+.game-shell {
+  --game-panel: #111e2d;
+  --game-border: #26384a;
+  --game-muted: #94a8bd;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.game-header,
+.game-toolbar,
+.editor-heading,
+.preview-heading,
+.mission-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.game-header {
+  margin-bottom: 22px;
+}
+
+.game-eyebrow,
+.panel-kicker {
+  color: #22d3ee;
+  font: 700 0.75rem/1.4 Consolas, monospace;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.game-header h1 {
+  margin: 4px 0 0;
+  font-size: clamp(1.35rem, 3vw, 2rem);
+}
+
+.game-header p,
+.panel-description,
+.mission-copy {
+  color: var(--game-muted);
+}
+
+.score-card {
+  min-width: 128px;
+  padding: 12px 16px;
+  border: 1px solid #80551b;
+  border-radius: 12px;
+  background: #2b2114;
+  text-align: center;
+}
+
+.score-card strong {
+  display: block;
+  color: #fbbf24;
+  font: 800 1.5rem/1.2 Consolas, monospace;
+}
+
+.score-card span {
+  color: #fcd34d;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.game-progress {
+  height: 8px;
+  overflow: hidden;
+  margin: 0 0 22px;
+  border-radius: 999px;
+  background: #1e2d3c;
+}
+
+.game-progress > span {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #06b6d4, #f97316);
+  transition: width 250ms ease;
+}
+
+.game-layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.7fr) minmax(320px, 1.1fr) minmax(350px, 1.4fr);
+  align-items: start;
+  gap: 16px;
+}
+
+.game-panel {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--game-border);
+  border-radius: 14px;
+  background: var(--game-panel);
+  box-shadow: 0 16px 40px rgb(0 0 0 / 18%);
+}
+
+.panel-header {
+  padding: 16px 18px;
+  border-bottom: 1px solid var(--game-border);
+}
+
+.panel-header h2 {
+  margin: 4px 0 0;
+  font-size: 1.05rem;
+}
+
+.mission-list {
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+}
+
+.mission-button {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  background: transparent;
+  color: #dbe7f4;
+  cursor: pointer;
+  text-align: left;
+}
+
+.mission-button:hover,
+.mission-button[aria-current="step"] {
+  border-color: #276278;
+  background: #102b3a;
+}
+
+.mission-number {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  place-items: center;
+  border-radius: 8px;
+  background: #243447;
+  color: #b9cadb;
+  font: 700 0.8rem Consolas, monospace;
+}
+
+.mission-button[data-completed="true"] .mission-number {
+  background: #064e3b;
+  color: #6ee7b7;
+}
+
+.mission-label {
+  flex: 1;
+  font-size: 0.82rem;
+  font-weight: 650;
+}
+
+.mission-xp {
+  color: #fbbf24;
+  font: 700 0.72rem Consolas, monospace;
+}
+
+.mission-content {
+  padding: 18px;
+}
+
+.mission-content h3 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+}
+
+.mission-copy {
+  min-height: 76px;
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.game-button {
+  min-height: 40px;
+  padding: 9px 13px;
+  border: 1px solid #375269;
+  border-radius: 8px;
+  background: #203247;
+  color: #f1f5f9;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  transition: background 150ms ease, transform 150ms ease, border-color 150ms ease;
+}
+
+.game-button:hover {
+  transform: translateY(-1px);
+  border-color: #22d3ee;
+  background: #29445e;
+}
+
+.game-button:focus-visible,
+.mission-button:focus-visible,
+.css-input:focus-visible {
+  outline: 2px solid #22d3ee;
+  outline-offset: 2px;
+}
+
+.game-button-primary {
+  width: 100%;
+  margin-top: 16px;
+  border-color: #0891b2;
+  background: #0e7490;
+}
+
+.game-button-primary:hover {
+  background: #0891b2;
+}
+
+.game-toolbar {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--game-border);
+}
+
+.editor-heading {
+  justify-content: flex-start;
+}
+
+.editor-heading strong,
+.preview-heading strong {
+  font-size: 0.88rem;
+}
+
+.css-input {
+  display: block;
+  width: 100%;
+  min-height: 480px;
+  resize: vertical;
+  padding: 16px;
+  border: 0;
+  background: #08111c;
+  color: #b7e7c4;
+  font: 0.8rem/1.55 Consolas, "Courier New", monospace;
+  tab-size: 2;
+}
+
+.css-input:focus {
+  outline: 2px solid #0891b2;
+  outline-offset: -2px;
+}
+
+.editor-status {
+  min-height: 45px;
+  padding: 12px 16px;
+  border-top: 1px solid var(--game-border);
+  color: var(--game-muted);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.editor-status[data-kind="success"] {
+  color: #6ee7b7;
+}
+
+.editor-status[data-kind="error"] {
+  color: #fca5a5;
+}
+
+.preview-heading {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--game-border);
+}
+
+.preview-heading span {
+  color: var(--game-muted);
+  font-size: 0.76rem;
+}
+
+.preview-frame {
+  display: block;
+  width: 100%;
+  height: min(78vh, 820px);
+  min-height: 520px;
+  border: 0;
+  background: #0f172a;
+}
+
+.editor-footnote {
+  margin: 18px 0 0;
+  color: var(--game-muted);
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+@media (max-width: 1100px) {
+  .game-layout {
+    grid-template-columns: minmax(220px, 0.7fr) minmax(320px, 1.3fr);
+  }
+
+  .preview-panel {
+    grid-column: 1 / -1;
+  }
+
+  .preview-frame {
+    height: 720px;
+  }
+}
+
+@media (max-width: 700px) {
+  .game-shell {
+    padding: 14px;
+  }
+
+  .game-header {
+    align-items: flex-start;
+  }
+
+  .game-header p {
+    font-size: 0.86rem;
+  }
+
+  .score-card {
+    min-width: 90px;
+    padding: 9px;
+  }
+
+  .game-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .preview-panel {
+    grid-column: auto;
+  }
+
+  .css-input {
+    min-height: 360px;
+  }
+
+  .preview-frame {
+    height: 620px;
+    min-height: 420px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
